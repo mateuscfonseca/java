@@ -6,7 +6,7 @@ Estudo de caso para micro serviço em java
 
 - A aplicação é auto contida. (Embedded Jetty)
 - Não utilizar frame works (Spring, Quarkus)
-- Configurar CDI usando apenas o Jersey HK2
+- Não usar CDI
 - JAX-RS 2.0
 - exloprar funcionalidades do Eclipse Microprofile    
     - Helth

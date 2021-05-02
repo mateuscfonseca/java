@@ -12,10 +12,8 @@ import org.glassfish.jersey.server.ServerProperties;
 public class App extends ResourceConfig{
     public App() {
 	packages("com.mateus.rest;");
-	register(new CDIBinder());
 	register(JacksonFeature.class);
 	register(MultiPartFeature.class);	
-	property(ServerProperties.WADL_FEATURE_DISABLE, true);
-	
+	property(ServerProperties.WADL_FEATURE_DISABLE, true);	
     }
 }

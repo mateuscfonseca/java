@@ -2,7 +2,6 @@ package com.mateus.rest.resources;
 
 
 
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -21,9 +20,8 @@ import com.mateus.services.Service;
 public class Resource {
     Service service;
     
-    @Inject
-    public Resource(Service service) {
-	this.service = service;
+    public Resource() {
+	this.service = new Service();
     }
     
     @GET
