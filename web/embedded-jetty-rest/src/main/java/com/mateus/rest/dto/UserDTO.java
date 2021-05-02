@@ -1,17 +1,27 @@
 package com.mateus.rest.dto;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.mateus.modelos.User;
 
 public class UserDTO {
+
+    public Long id;
+
+    public String login;
+
+    public Boolean disabled;
+
+    public List<BlogPostDTO> blogPosts = new ArrayList<>();
     
-    public String nome;
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    public LocalDateTime date = LocalDateTime.now();
+    public UserDTO() {}
+    public UserDTO(User user)  {
+	this.id = user.getId();
+	this.login = user.getLogin();
+	this.disabled = user.getDisabled();
+	this.blogPosts = user.getBlogPosts().stream().map(BlogPostDTO::new).collect(Collectors.toList());
+    }
 
 }

@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
+import com.mateus.modelos.User;
 import com.mateus.rest.dto.UserDTO;
 import com.mateus.services.Service;
 
@@ -29,6 +30,14 @@ public class Resource {
     @Produces(MediaType.TEXT_PLAIN)
     public Response hello() {
 	return Response.ok("Olá").build();
+    }
+    
+    @Path("/user")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response user() {
+	User user = service.getUser();
+	return Response.ok(new UserDTO(user)).build();
     }
     
     @POST

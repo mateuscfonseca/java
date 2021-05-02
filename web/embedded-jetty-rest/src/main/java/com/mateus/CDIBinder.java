@@ -24,5 +24,4 @@ public class CDIBinder extends AbstractBinder {
 	Set<Class<? extends AbstractService>> classes = reflections.getSubTypesOf(AbstractService.class);
 	return classes;
     }
-
 }
