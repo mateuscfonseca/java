@@ -15,4 +15,4 @@ Estudo de caso para micro serviço em java
     - Fault Tolerance
 - JWT para autenticação
 - Rodar em containers (Docker)
-- Não usar JPA
+- Usar QueryDSL

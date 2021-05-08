@@ -176,13 +176,16 @@
 		<finalName>webapp</finalName>
 		<resources>
 			<resource>
-				<targetPath>META-INF</targetPath>
 				<directory>${basedir}/src/resources/</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>*.xml</include>
-				</includes>
 			</resource>
+			<resource>
+                <targetPath>META-INF</targetPath>
+                <directory>${basedir}/src/resources/META-INF</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.xml</include>
+                </includes>
+            </resource>
 		</resources>
 		<plugins>
 			<plugin>

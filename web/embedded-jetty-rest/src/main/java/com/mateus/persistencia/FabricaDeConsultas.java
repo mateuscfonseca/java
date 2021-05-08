@@ -1,4 +1,4 @@
-package com.mateus.persistence;
+package com.mateus.persistencia;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -6,19 +6,23 @@ import javax.persistence.Persistence;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
-public class QueryFactory {
+public class FabricaDeConsultas {
     
     final EntityManagerFactory emf;
     
-    public QueryFactory() {
+    public FabricaDeConsultas() {
 	this.emf = Persistence.createEntityManagerFactory("postgres");
     }
     
     public JPAQueryFactory queryFactory() {
-	EntityManager em = this.emf.createEntityManager();
-	JPAQueryFactory queryFactory = new JPAQueryFactory(em);	
+        var em = this.entityManager();
+	var queryFactory = new JPAQueryFactory(em);	
 	
 	return queryFactory;
+    }
+    
+    public EntityManager entityManager(){
+       return this.emf.createEntityManager();
     }
 
 }
