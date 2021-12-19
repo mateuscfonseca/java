@@ -12,6 +12,7 @@ import org.glassfish.jersey.server.ServerProperties;
 public class App extends ResourceConfig{
     public App() {
 	packages("com.mateus.recursos;");
+	packages("com.mateus.health;");
 	register(JacksonFeature.class);
 	register(MultiPartFeature.class);	
 	property(ServerProperties.WADL_FEATURE_DISABLE, true);	
