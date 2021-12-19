@@ -15,7 +15,19 @@ public class UsuarioDao extends DaoAbstrata {
         QUsuario qUsuario = QUsuario.usuario;
 
         Usuario usuario = this.queryFactory.selectFrom(qUsuario)
-                                .where(qUsuario.login.eq("mateuscfonseca"))
+                                .where(qUsuario.id.eq(id))
+                                .fetchOne();
+        
+        return usuario;
+
+    }
+
+    public Usuario acharPorLoginESenha(String login, String senha) {
+        QUsuario qUsuario = QUsuario.usuario;
+
+        Usuario usuario = this.queryFactory.selectFrom(qUsuario)
+                                .where(qUsuario.login.eq(login).and(qUsuario.senha.eq(senha)))
+                
                                 .fetchOne();
         
         return usuario;
